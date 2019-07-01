@@ -16,7 +16,7 @@ sergiouser = User.create(
   first_name: 'Sergio',
   last_name: 'Xalambrí',
   birthday: '02-08-1992',
-  private_email: true,
+  private_email: false,
   email: 'sergio@xalambri.com'
 )
 

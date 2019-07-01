@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_decorator = UserDecorator.new(@user)
   end
 
   def new

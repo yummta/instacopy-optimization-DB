@@ -1,44 +1,32 @@
 <p>
   Name:
-  <%= @user.first_name + ' ' + @user.last_name %>
+  <%= fullname(@user_decorator) %>
 </p>
 
 <p>
   Email:
-  <% if @user.private_email %>
-    Private
-  <% else %>
-    <%= @user.email %>
-  <% end %>
+  <%= @user_decorator.define_email %>
 </p>
 
 <p>
   Birthday:
-  <%= @user.birthday.strftime('%d - %m - %Y') %>
+  <%= @user_decorator.birthday_format %>
 </p>
 
 <p>
   Followers:
-  <ul>
-    <% @user.followers.each do |follower| %>
-      <li><%= link_to follower.first_name + ' ' + follower.last_name, follower %></li>
-    <% end %>
-  </ul>
+  <%= users_list(@user_decorator.followers) %>
 </p>
 
 <p>
   Following:
-  <ul>
-    <% @user.following.each do |followed| %>
-      <li><%= link_to followed.first_name + ' ' + followed.last_name, followed %></li>
-    <% end %>
-  </ul>
+  <%= users_list(@user_decorator.following) %>
 </p>
 
 <p>
   Posts
   <dl>
-    <% @user.posts.each do |post| %>
+    <% @user_decorator.posts.each do |post| %>
       <dt>Description:</dt>
       <dd><%= post.description %></dd>
       <dt>Likes:</dt>
